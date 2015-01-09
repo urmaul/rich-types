@@ -1,7 +1,7 @@
 {
     "name": "urmaul/rich-types",
     "type": "library",
-    "description": Yet another rich types library.",
+    "description": "Yet another rich types library.",
     "keywords": ["types", "collections"],
     "homepage": "https://github.com/urmaul/rich-types",
     "license": "Apache 2.0",
