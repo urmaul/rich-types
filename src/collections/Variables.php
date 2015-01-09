@@ -39,7 +39,11 @@ class Variables
      */
     public function filter($callback = null)
     {
-        $this->value = array_filter($this->value, $callback);
+        if ($callback !== null)
+            $this->value = array_filter($this->value, $callback);
+        else
+            $this->value = array_filter($this->value);
+        
         return $this;
     }
     
