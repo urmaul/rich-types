@@ -62,8 +62,13 @@ class Variables
      * 
      * @return array
      */
-    public function getValue()
+    public function value()
     {
         return $this->value;
+    }
+    
+    public function values()
+    {
+        return array_values($this->value);
     }
 }
