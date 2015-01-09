@@ -37,7 +37,7 @@ class Variables
      * @param callable $callback
      * @return $this
      */
-    public function filter($callback)
+    public function filter($callback = null)
     {
         $this->value = array_filter($this->value, $callback);
         return $this;
