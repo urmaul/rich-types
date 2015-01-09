@@ -1,0 +1,21 @@
+{
+    "name": "urmaul/rich-types",
+    "type": "library",
+    "description": Yet another rich types library.",
+    "keywords": ["types", "collections"],
+    "homepage": "https://github.com/urmaul/rich-types",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Bogdan Kolbik"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+	"autoload": {
+        "psr-4": {
+            "rich\\": "src/"
+        }
+    }
+}
