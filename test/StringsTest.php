@@ -16,6 +16,12 @@ class StringsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['a', 'b', 'c'], $collection->value());
     }
     
+    public function testSplitList()
+    {
+        $collection = Strings::splitList("a,b, c,\nd, \r\ne");
+        $this->assertEquals(['a', 'b', 'c', 'd', 'e'], $collection->value());
+    }
+    
     public function testTrim()
     {
         $collection = Strings::from(['a', ' b', 'c ', ' d '])->trim();

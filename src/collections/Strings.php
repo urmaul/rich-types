@@ -16,6 +16,16 @@ class Strings extends Variables
         return static::from($array);
     }
     
+    /**
+     * 
+     * @param string $string
+     * @return static
+     */
+    public static function splitList($string)
+    {
+        return static::split(',', $string)->trim();
+    }
+    
     
     /**
      * 
