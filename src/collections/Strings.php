@@ -33,7 +33,7 @@ class Strings extends Variables
      */
     public function lower()
     {
-        return $this->map('strtolower');
+        return $this->map('mb_strtolower');
     }
     
     /**

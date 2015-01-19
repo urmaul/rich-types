@@ -56,7 +56,18 @@ class Variables
         $this->value = array_unique($this->value);
         return $this;
     }
-    
+
+    /**
+     * Merges value with given array.
+     * @param array $array
+     * @return $this
+     */
+    public function merge($array)
+    {
+        $this->value = array_merge($this->value, $array);
+        return $this;
+    }
+
     
     /**
      * 
