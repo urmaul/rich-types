@@ -22,6 +22,12 @@ class StringsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['a', 'b', 'c', 'd', 'e'], $collection->value());
     }
     
+    public function testLower()
+    {
+        $collection = Strings::from(['AB', 'Cd', 'ef'])->lower();
+        $this->assertEquals(['ab', 'cd', 'ef'], $collection->value());
+    }
+
     public function testTrim()
     {
         $collection = Strings::from(['a', ' b', 'c ', ' d '])->trim();
