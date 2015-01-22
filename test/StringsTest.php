@@ -27,16 +27,10 @@ class StringsTest extends PHPUnit_Framework_TestCase
         $collection = Strings::from(['a', ' b', 'c ', ' d '])->trim();
         $this->assertEquals(['a', 'b', 'c', 'd'], $collection->value());
     }
-    
-    public function testUnique()
+
+    public function testReplace()
     {
-        $collection = Strings::from(['a', 'a', 'b', 'c', 'a'])->unique();
-        $this->assertEquals(['a', 'b', 'c'], $collection->values());
-    }
-    
-    public function testFilter()
-    {
-        $collection = Strings::from(['a', '', 'b', 'c', ''])->filter();
-        $this->assertEquals(['a', 'b', 'c'], $collection->values());
+        $collection = Strings::from(['a%a', 'a%b%c'])->replace('%', '-');
+        $this->assertEquals(['a-a', 'a-b-c'], $collection->value());
     }
 }

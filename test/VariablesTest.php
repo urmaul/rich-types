@@ -16,4 +16,16 @@ class VariablesTest extends PHPUnit_Framework_TestCase
             ->merge(['c', 'd']);
         $this->assertEquals(['a', 'b', 'c', 'd'], $collection->value());
     }
+
+    public function testUnique()
+    {
+        $collection = Variables::from(['a', 'a', 'b', 'c', 'a'])->unique();
+        $this->assertEquals(['a', 'b', 'c'], $collection->values());
+    }
+
+    public function testFilter()
+    {
+        $collection = Variables::from(['a', '', 'b', 'c', ''])->filter();
+        $this->assertEquals(['a', 'b', 'c'], $collection->values());
+    }
 }
