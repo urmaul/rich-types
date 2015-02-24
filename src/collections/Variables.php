@@ -105,4 +105,13 @@ class Variables implements IteratorAggregate, Countable
     {
         return array_values($this->value);
     }
+    
+    
+    /**
+     * @return Strings
+     */
+    public function asStrings()
+    {
+        return Strings::from($this->value);
+    }
 }

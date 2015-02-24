@@ -1,6 +1,7 @@
 <?php
 
 use rich\collections\Variables;
+use rich\collections\Strings;
 
 class VariablesTest extends PHPUnit_Framework_TestCase
 {
@@ -49,5 +50,11 @@ class VariablesTest extends PHPUnit_Framework_TestCase
     {
         $collection = Variables::from(['a', 'b', 'c']);
         $this->assertSame(3, count($collection));
+    }
+    
+    public function testAsStrings()
+    {
+        $collection = Variables::from(['a', 'b', 'c'])->asStrings();
+        $this->assertTrue($collection instanceof Strings);
     }
 }
