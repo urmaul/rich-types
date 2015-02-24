@@ -2,7 +2,11 @@
 
 namespace rich\collections;
 
-class Variables
+use ArrayIterator;
+use Countable;
+use IteratorAggregate;
+
+class Variables implements IteratorAggregate, Countable
 {
     /**
      * @var array
@@ -66,6 +70,25 @@ class Variables
     {
         $this->value = array_merge($this->value, $array);
         return $this;
+    }
+    
+        
+    /**
+     * Returns values iterator
+     * @return ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->value);
+    }
+    
+    /**
+     * Returns values count
+     * @return type
+     */
+    public function count()
+    {
+        return count($this->value);
     }
 
     

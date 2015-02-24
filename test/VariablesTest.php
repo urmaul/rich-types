@@ -28,4 +28,26 @@ class VariablesTest extends PHPUnit_Framework_TestCase
         $collection = Variables::from(['a', '', 'b', 'c', ''])->filter();
         $this->assertEquals(['a', 'b', 'c'], $collection->values());
     }
+    
+    public function testIterator()
+    {
+        $collection = Variables::from(['a', 'b', 'c']);
+        $this->assertTrue($collection->getIterator() instanceof Iterator);
+    }
+    
+    public function testForeach()
+    {
+        $vars = ['a' => 1, 'b' => 2, 'c' => 3];
+        $collection = Variables::from($vars);
+        foreach ($collection as $key => $val) {
+            $this->assertArrayHasKey($key, $vars);
+            $this->assertSame($vars[$key], $val);
+        }
+    }
+    
+    public function testCoubt()
+    {
+        $collection = Variables::from(['a', 'b', 'c']);
+        $this->assertSame(3, count($collection));
+    }
 }
