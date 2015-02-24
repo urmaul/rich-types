@@ -33,7 +33,7 @@ class VariablesTest extends PHPUnit_Framework_TestCase
     public function testIterator()
     {
         $collection = Variables::from(['a', 'b', 'c']);
-        $this->assertTrue($collection->getIterator() instanceof Iterator);
+        $this->assertInstanceOf('Iterator', $collection->getIterator());
     }
     
     public function testForeach()
@@ -55,6 +55,6 @@ class VariablesTest extends PHPUnit_Framework_TestCase
     public function testAsStrings()
     {
         $collection = Variables::from(['a', 'b', 'c'])->asStrings();
-        $this->assertTrue($collection instanceof Strings);
+        $this->assertInstanceOf(Strings::className(), $collection);
     }
 }

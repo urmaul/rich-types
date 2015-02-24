@@ -14,6 +14,15 @@ class Variables implements IteratorAggregate, Countable
     private $value = [];
     
     /**
+     * Returns the fully qualified name of this class.
+     * @return string the fully qualified name of this class.
+     */
+    public static function className()
+    {
+        return get_called_class();
+    }
+    
+    /**
      * @param $array
      * @return static
      */
@@ -108,10 +117,34 @@ class Variables implements IteratorAggregate, Countable
     
     
     /**
+     * @return Numbers
+     */
+    public function asNumbers()
+    {
+        return Numbers::from($this->value);
+    }
+    
+    /**
+     * @return Objects
+     */
+    public function asObjects()
+    {
+        return Objects::from($this->value);
+    }
+    
+    /**
      * @return Strings
      */
     public function asStrings()
     {
         return Strings::from($this->value);
+    }
+    
+    /**
+     * @return Variables
+     */
+    public function asVariables()
+    {
+        return Variables::from($this->value);
     }
 }
