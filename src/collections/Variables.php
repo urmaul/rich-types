@@ -81,6 +81,22 @@ class Variables implements IteratorAggregate, Countable
         return $this;
     }
     
+    /**
+     * Finds an item by callback function.
+     * @param callable $callback
+     * @return mixed first item found or null if nothing match
+     */
+    public function find($callback)
+    {
+        foreach ($this->value as $value) {
+            if (call_user_func($callback, $value)) {
+                return $value;
+            }
+        }
+        
+        return null;
+    }
+    
         
     /**
      * Returns values iterator
