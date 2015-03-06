@@ -97,6 +97,18 @@ class Variables implements IteratorAggregate, Countable
         return null;
     }
     
+    /**
+     * Iteratively reduce the variables to a single valu
+     * @see array_reduce()
+     * @param callable $callback
+     * @param mixed $initial
+     * @return mixed resulting value.
+     */
+    public function reduce($callback, $initial = null)
+    {
+        return array_reduce($this->value, $callback, $initial);
+    }
+    
         
     /**
      * Returns values iterator

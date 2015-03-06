@@ -38,6 +38,14 @@ class VariablesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(6, $value);
     }
 
+    public function testReduce()
+    {
+        $value = Variables::from([2, 6, 8])->reduce(function($item, $total){
+            return $total + $item;
+        }, 0);
+        $this->assertEquals(16, $value);
+    }
+
     public function testIterator()
     {
         $collection = Variables::from(['a', 'b', 'c']);
