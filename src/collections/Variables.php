@@ -44,6 +44,18 @@ class Variables implements IteratorAggregate, Countable
         $this->value = array_map($callback, $this->value);
         return $this;
     }
+
+    /**
+     * Maps values to keys using callback
+     * @param callable $callback
+     * @return static
+     */
+    public function mapKeys($callback)
+    {
+        $keys = array_map($callback, $this->value);
+        $value = array_combine($keys, $this->value);
+        return static::from($value);
+    }
     
     /**
      * 

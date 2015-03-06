@@ -11,6 +11,18 @@ class VariablesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['a', 'b', 'c'], $collection->value());
     }
 
+    public function testMap()
+    {
+        $collection = Variables::from(['A', 'B', 'C'])->map('strtolower');
+        $this->assertEquals(['a', 'b', 'c'], $collection->value());
+    }
+    
+    public function testMapKeys()
+    {
+        $collection = Variables::from(['A', 'B', 'C'])->mapKeys('strtolower');
+        $this->assertEquals(['a' => 'A', 'b' => 'B', 'c' => 'C'], $collection->value());
+    }
+
     public function testFilter()
     {
         $collection = Variables::from(['a', '', 'b', 'c', ''])->filter();
