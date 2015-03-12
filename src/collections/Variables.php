@@ -95,6 +95,7 @@ class Variables implements IteratorAggregate, Countable
     
     /**
      * Finds an item by callback function.
+     * Returns it's value.
      * @param callable $callback
      * @return mixed first item found or null if nothing match
      */
