@@ -1,9 +1,11 @@
 <?php
 
+namespace rich\test;
+
 use rich\collections\Objects;
 use rich\collections\Variables;
 
-class ObjectsTest extends PHPUnit_Framework_TestCase
+class ObjectsTest extends \PHPUnit_Framework_TestCase
 {
     public function testProperty()
     {

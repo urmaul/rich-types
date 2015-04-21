@@ -1,9 +1,11 @@
 <?php
 
+namespace rich\test;
+
 use rich\collections\Variables;
 use rich\collections\Strings;
 
-class VariablesTest extends PHPUnit_Framework_TestCase
+class VariablesTest extends \PHPUnit_Framework_TestCase
 {
     public function testFrom()
     {

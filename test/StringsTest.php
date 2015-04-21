@@ -1,8 +1,10 @@
 <?php
 
+namespace rich\test;
+
 use rich\collections\Strings;
 
-class StringsTest extends PHPUnit_Framework_TestCase
+class StringsTest extends \PHPUnit_Framework_TestCase
 {
     public function testFrom()
     {

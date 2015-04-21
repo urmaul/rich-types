@@ -1,8 +1,10 @@
 <?php
 
+namespace rich\test;
+
 use rich\collections\Numbers;
 
-class NumbersTest extends PHPUnit_Framework_TestCase
+class NumbersTest extends \PHPUnit_Framework_TestCase
 {
     public function testSum()
     {

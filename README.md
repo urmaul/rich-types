@@ -2,9 +2,11 @@
 
 Yet another rich types library. Designed to use fluent interaces with base PHP types.
 
-No comments, <del>no tests,</del> no release planned. Use it only if you are me.
+<del>No</del> Not enough comments, <del>no tests,</del> no release planned. Use it only if you are <del>me</del> brave enough.
 
 While major version is 0 minor version change means backwards incompatible changes.
+
+[![Build Status](https://travis-ci.org/urmaul/rich-types.svg)](https://travis-ci.org/urmaul/rich-types)
 
 ## Example
 
@@ -53,3 +55,8 @@ Base collection class. Can be passed to `foreach` and `count()`.
 #### Objects
 
 * **property($property)** - cleates new collection with items picked from objects property.
+
+#### Arrays
+
+* **column($columnKey, $indexKey = null)** - returns the values from a single column of the array, identified by the column_key. Optionally, you may provide an index_key to index the values in the returned array by the values from the index_key column in the input array.
+    Performs `[array_column](http://php.net/manual/en/function.array-column.php)` to collection. If php version is lower than 5.5, [ramsey/array_column](https://github.com/ramsey/array_column) is used.
