@@ -59,4 +59,4 @@ Base collection class. Can be passed to `foreach` and `count()`.
 #### Arrays
 
 * **column($columnKey, $indexKey = null)** - returns the values from a single column of the array, identified by the column_key. Optionally, you may provide an index_key to index the values in the returned array by the values from the index_key column in the input array.
-    Performs `[array_column](http://php.net/manual/en/function.array-column.php)` to collection. If php version is lower than 5.5, [ramsey/array_column](https://github.com/ramsey/array_column) is used.
+    Performs [array_column](http://php.net/manual/en/function.array-column.php) to collection. If php version is lower than 5.5, [ramsey/array_column](https://github.com/ramsey/array_column) is used.
