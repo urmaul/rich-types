@@ -62,4 +62,4 @@ Base collection class. Can be passed to `foreach` and `count()`.
 
     Performs [array_column](http://php.net/manual/en/function.array-column.php) to collection. If php version is lower than 5.5, [ramsey/array_column](https://github.com/ramsey/array_column) is used.
 
-* **indexByColumn($columnKey)**  - maps values to keys using column value.
+* **indexByColumn($columnKey)**  - uses the values from a single column of the array as collection keys.
