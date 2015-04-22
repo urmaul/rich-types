@@ -4,7 +4,11 @@ Yet another rich types library. Designed to use fluent interaces with base PHP t
 
 <del>No</del> Not enough comments, <del>no tests,</del> no release planned. Use it only if you are <del>me</del> brave enough.
 
-While major version is 0 minor version change means backwards incompatible changes.
+While major version is 0 minor version change means backwards incompatible changes. So you should install it with composer like this:
+
+``
+php composer.phar require urmaul/rich-types "0.3.*"
+``
 
 [![Build Status](https://travis-ci.org/urmaul/rich-types.svg)](https://travis-ci.org/urmaul/rich-types)
 
