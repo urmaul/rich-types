@@ -41,8 +41,8 @@ class Variables implements IteratorAggregate, Countable
      */
     public function map($callback)
     {
-        $this->value = array_map($callback, $this->value);
-        return $this;
+        $value = array_map($callback, $this->value);
+        return $this->setValue($value);
     }
 
     /**
@@ -50,11 +50,11 @@ class Variables implements IteratorAggregate, Countable
      * @param callable $callback
      * @return static
      */
-    public function mapKeys($callback)
+    public function indexBy($callback)
     {
         $keys = array_map($callback, $this->value);
         $value = array_combine($keys, $this->value);
-        return static::from($value);
+        return $this->setValue($value);
     }
     
     /**
@@ -65,11 +65,11 @@ class Variables implements IteratorAggregate, Countable
     public function filter($callback = null)
     {
         if ($callback !== null)
-            $this->value = array_filter($this->value, $callback);
+            $value = array_filter($this->value, $callback);
         else
-            $this->value = array_filter($this->value);
-        
-        return $this;
+            $value = array_filter($this->value);
+
+        return $this->setValue($value);
     }
     
     /**
@@ -78,8 +78,8 @@ class Variables implements IteratorAggregate, Countable
      */
     public function unique()
     {
-        $this->value = array_unique($this->value);
-        return $this;
+        $value = array_unique($this->value);
+        return $this->setValue($value);
     }
 
     /**
@@ -155,7 +155,18 @@ class Variables implements IteratorAggregate, Countable
     {
         return array_values($this->value);
     }
-    
+
+    /**
+     * Sets collection value.
+     * @param array $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
+
     
     /**
      * @return Numbers

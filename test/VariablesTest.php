@@ -19,10 +19,23 @@ class VariablesTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['a', 'b', 'c'], $collection->value());
     }
     
-    public function testMapKeys()
+    public function indexByProvider()
     {
-        $collection = Variables::from(['A', 'B', 'C'])->mapKeys('strtolower');
-        $this->assertEquals(['a' => 'A', 'b' => 'B', 'c' => 'C'], $collection->value());
+        return [
+            [['A', 'B', 'C'], ['a' => 'A', 'b' => 'B', 'c' => 'C']],
+            [[5 => 'A', 'B', 'foo' => 'C'], ['a' => 'A', 'b' => 'B', 'c' => 'C']],
+        ];
+    }
+
+    /**
+     * @dataProvider indexByProvider
+     * @param $source
+     * @param $expected
+     */
+    public function testIndexBy($source, $expected)
+    {
+        $collection = Variables::from($source)->indexBy('strtolower');
+        $this->assertEquals($expected, $collection->value());
     }
 
     public function testFilter()

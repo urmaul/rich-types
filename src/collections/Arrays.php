@@ -9,4 +9,11 @@ class Arrays extends Variables
         $value = array_column($this->value(), $columnKey, $indexKey);
         return Variables::from($value);
     }
+
+    public function indexByColumn($columnKey)
+    {
+        $keys = array_column($this->value(), $columnKey);
+        $value = array_combine($keys, $this->values());
+        return $this->setValue($value);
+    }
 }
