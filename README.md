@@ -32,6 +32,7 @@ Base collection class. Can be passed to `foreach` and `count()`.
 * **map($callback)** - performs `array_map` to each item in collection.
 * **indexBy($callback)**  - maps values to keys using callback.
 * **filter($callback = null)** - performs `array_filter` to each item in collection.
+* **diff($array)** - Removes from collection all items that are present in $array using `array_diff`.
 * **unique()** - performs `array_unique` to collection.
 * **merge($array)** - merges another array to collection.
 * **find($callback)** - finds an item by callback function. Returns it's value.

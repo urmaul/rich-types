@@ -73,6 +73,18 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
+     * Removes from collection all items that are present in $array.
+     * @see array_diff()
+     * @param array $array An array to compare against 
+     * @return $this
+     */
+    public function diff($array)
+    {
+        $this->value = array_diff($this->value, $array);
+        return $this;
+    }
+    
+    /**
      * 
      * @return $this
      */
@@ -111,7 +123,7 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
-     * Iteratively reduce the variables to a single valu
+     * Iteratively reduce the variables to a single value.
      * @see array_reduce()
      * @param callable $callback
      * @param mixed $initial

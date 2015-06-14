@@ -44,6 +44,12 @@ class VariablesTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['a', 'b', 'c'], $collection->values());
     }
     
+    public function testDiff()
+    {
+        $collection = Variables::from([2, 6, 8, 10])->diff([6, 10, 15]);
+        $this->assertEquals([0 => 2, 2 => 8], $collection->value());
+    }
+
     public function testUnique()
     {
         $collection = Variables::from(['a', 'a', 'b', 'c', 'a'])->unique();
