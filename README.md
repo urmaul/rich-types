@@ -7,7 +7,7 @@ Yet another rich types library. Designed to use fluent interaces with base PHP t
 While major version is 0 minor version change means backwards incompatible changes. So you should install it with composer like this:
 
 ``
-php composer.phar require urmaul/rich-types "0.3.*"
+php composer.phar require urmaul/rich-types '0.3.*'
 ``
 
 [![Build Status](https://travis-ci.org/urmaul/rich-types.svg)](https://travis-ci.org/urmaul/rich-types)
