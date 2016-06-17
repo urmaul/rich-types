@@ -37,6 +37,47 @@ class VariablesTest extends \PHPUnit_Framework_TestCase
         $collection = Variables::from($source)->indexBy('strtolower');
         $this->assertEquals($expected, $collection->value());
     }
+    
+    public function testMapKeysNotStrict()
+    {
+        $data = [
+            'duck1' => 'Huey',
+            'duck2' => 'Dewey',
+            'duck3' => 'Louie',
+        ];
+        $map = [
+            'duck1' => 'foo',
+            'duck2' => 'bar',
+        ];
+        
+        $expected = [
+            'foo' => 'Huey',
+            'bar' => 'Dewey',
+            'duck3' => 'Louie',
+        ];
+        
+        $actual = Variables::from($data)->mapKeys($map, false)->value();
+        
+        $this->assertEquals($expected, $actual);
+    }
+    
+    /**
+     * @expectedException \rich\exceptions\UnexpectedKeyException
+     */
+    public function testMapKeysStrict()
+    {
+        $data = [
+            'duck1' => 'Huey',
+            'duck2' => 'Dewey',
+            'duck3' => 'Louie',
+        ];
+        $map = [
+            'duck1' => 'foo',
+            'duck2' => 'bar',
+        ];
+        
+        Variables::from($data)->mapKeys($map);
+    }
 
     public function testFilter()
     {

@@ -5,6 +5,7 @@ namespace rich\collections;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use rich\exceptions\UnexpectedKeyException;
 
 class Variables implements IteratorAggregate, Countable
 {
@@ -58,8 +59,36 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
-     * 
+     * Replaces collection keys using map array.
+     * @param array $replaces old keys to new keys map.
+     * @param boolean $strict whether to throw exception when key is not in the map.
+     * @return $this
+     * @throws UnexpectedKeyException if strict and key is not in the map.
+     */
+    public function mapKeys(array $replaces, $strict = true)
+    {
+        $mapped = [];
+        foreach ($this->value as $key => $value) {
+            if (isset($replaces[$key])) {
+                $newKey = $replaces[$key];
+            } elseif ($strict) {
+                throw new UnexpectedKeyException('Key "' . $key . '" not found in map.');
+            } else {
+                $newKey = $key;
+            }
+            
+            $mapped[$newKey] = $value;
+        }
+        
+        $this->value = $mapped;
+        
+        return $this;
+    }
+    
+    /**
+     * Performs `array_filter` to each item in collection.
      * @param callable $callback
+     * @see array_filter()
      * @return $this
      */
     public function filter($callback = null)
@@ -85,7 +114,8 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
-     * 
+     * Performs `array_unique` to collection.
+     * @see array_unique()
      * @return $this
      */
     public function unique()
@@ -155,7 +185,7 @@ class Variables implements IteratorAggregate, Countable
 
     
     /**
-     * 
+     * Returns collection data preserving keys.
      * @return array
      */
     public function value()
@@ -163,6 +193,10 @@ class Variables implements IteratorAggregate, Countable
         return $this->value;
     }
     
+    /**
+     * Returns collection items as array indexed numerically.
+     * @return array
+     */
     public function values()
     {
         return array_values($this->value);
@@ -181,6 +215,8 @@ class Variables implements IteratorAggregate, Countable
 
     
     /**
+     * Converts collection to `Numbers`.
+     * Can be used to clone collection.
      * @return Numbers
      */
     public function asNumbers()
@@ -189,6 +225,8 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
+     * Converts collection to `Objects`.
+     * Can be used to clone collection.
      * @return Objects
      */
     public function asObjects()
@@ -197,6 +235,8 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
+     * Converts collection to `Strings`.
+     * Can be used to clone collection.
      * @return Strings
      */
     public function asStrings()
@@ -205,6 +245,8 @@ class Variables implements IteratorAggregate, Countable
     }
     
     /**
+     * Converts collection to `Variables`.
+     * Can be used to clone collection.
      * @return Variables
      */
     public function asVariables()

@@ -30,7 +30,8 @@ Base collection class. Can be passed to `foreach` and `count()`.
 
 * **static from($array)** - creates new collection instance.
 * **map($callback)** - performs `array_map` to each item in collection.
-* **indexBy($callback)**  - maps values to keys using callback.
+* **indexBy($callback)** - maps values to keys using callback.
+* **mapKeys(array $replaces, $strict = true)** - replaces collection keys using map array..
 * **filter($callback = null)** - performs `array_filter` to each item in collection.
 * **diff($array)** - Removes from collection all items that are present in $array using `array_diff`.
 * **unique()** - performs `array_unique` to collection.
@@ -38,8 +39,8 @@ Base collection class. Can be passed to `foreach` and `count()`.
 * **find($callback)** - finds an item by callback function. Returns it's value.
 * **reduce($callback, $initial = null)** - performs `array_reduce` to collection. Returns resulting value.
 * **count()** - returns items count.
-* **value()** - returns collection items as array.
-* **values()** - returns collection items as array and indexes the array numerically.
+* **value()** - returns collection data preserving keys.
+* **values()** - returns collection items as array indexed numerically.
 * **asVariables()** - converts collection to `Variables`. Can be used to clone collection.
 * **asNumbers()** - converts collection to `Numbers`. Can be used to clone collection.
 * **asStrings()** - converts collection to `Strings`. Can be used to clone collection.
