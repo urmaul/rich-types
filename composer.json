@@ -4,7 +4,7 @@
     "description": "Yet another rich types library.",
     "keywords": ["types", "collections"],
     "homepage": "https://github.com/urmaul/rich-types",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Bogdan Kolbik"
